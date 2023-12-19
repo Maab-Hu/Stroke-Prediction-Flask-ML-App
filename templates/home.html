@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"> <!-- Link to your external CSS file -->
+
+
+    <div class="container">
+        <!-- Use the text-center class to center the heading -->
+        <br>
+        <h1 class="text-center">Stroke Prediction Using ML Algorithms</h1>
+        <br>
+        <div class="container container-subheading">
+            <h2 class="text-center">Choose your Model</h2>
+        </div>
+        <br>
+    </div>
+
+    <div class="container container-buttons">
+        <!-- Centered Buttons within a Form -->
+        <form method="post" action="/predict" class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-warning btn-lg button-margin" name="button_type" value="Logistic Regression">Logistic Regression</button>
+            <button type="submit" class="btn btn-outline-success btn-lg button-margin" name="button_type" value="Decision Tree">Decision Tree</button>
+            <button type="submit" class="btn btn-outline-danger btn-lg" name="button_type" value="Support Vector Machine">Support Vector Machine</button>
+        </form>
+    </div>
+
+
+      
+{% endblock %}

@@ -1,0 +1,16 @@
+.button-margin {
+    margin-right: 10px;
+}
+
+.container-buttons {
+    margin-top: 100px; /* Add margin to the top of the container */
+                    }
+
+.container-subheading {
+    margin-top: 150px; /* Add margin to the top of the container */
+                    }
+
+.btn-lg {
+    padding: 30px 50px; /* Adjust the padding to increase button size */
+    font-size: 1.5rem; /* Adjust the font size for larger text */
+}

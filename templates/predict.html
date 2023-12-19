@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Predict{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+<div class="container container-subheading">
+    <h3 class="text-center mb-4">Please select the valid options for the patient</h3>
+</div>
+<div class="container container-form">
+    <form method="post" action="" class="text-center">
+      
+        {{ form.hidden_tag() }}
+        
+        <div class="form-row mb-3">
+            <div class="form-group col-md-6">
+                {{ form.gender.label(class="form-control-label text-center") }}
+                {{ form.gender(class="form-control") }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.age.label(class="form-control-label text-center") }}
+                {{ form.age(class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-row mb-3">
+            <div class="form-group col-md-6">
+                {{ form.hypertension.label(class="form-control-label text-center") }}
+                {{ form.hypertension(class="form-control") }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.heart_disease.label(class="form-control-label text-center") }}
+                {{ form.heart_disease(class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-row mb-3">
+            <div class="form-group col-md-6">
+                {{ form.ever_married.label(class="form-control-label text-center") }}
+                {{ form.ever_married(class="form-control") }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.work_type.label(class="form-control-label text-center") }}
+                {{ form.work_type(class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-row mb-3">
+            <div class="form-group col-md-6">
+                {{ form.residence.label(class="form-control-label text-center") }}
+                {{ form.residence(class="form-control") }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.glucose_level.label(class="form-control-label text-center") }}
+                {{ form.glucose_level(class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-row mb-3">
+            <div class="form-group col-md-6">
+                {{ form.bmi.label(class="form-control-label text-center") }}
+                {{ form.bmi(class="form-control") }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.smoke_status.label(class="form-control-label text-center") }}
+                {{ form.smoke_status(class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-group mt-4">
+            {{ form.submit(class="btn btn-secondary btn-lg") }}
+        </div>
+
+        {% if prediction != None %}
+          {% if prediction == 1 %}
+              <div class="form-group mt-4">
+                <h4 class="font-weight-bold">The person is likely to get stroke</h4>
+              </div>
+          {% elif prediction == 0 %}
+              <div class="form-group mt-4">
+                <h4 class="font-weight-bold">The person is not likely to get stroke</h4>
+              </div>
+          {% endif %}
+          
+        {% endif %}
+    </form>
+</div>
+{% endblock %}
